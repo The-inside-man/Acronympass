@@ -1,0 +1,271 @@
+#body{
+	background-color: #68b1e5;
+}
+
+#pro_acro{
+	text-align: center;
+}
+
+#register_div{
+	position: absolute;
+	background-color: white;
+	height: 410px;
+	width: 275px;
+	border: 0px solid;
+	border-radius: 10px;
+	margin: auto;
+	left: -275px;
+}
+
+#window{
+	background-color: white;
+	width: 400px;
+	height: 100%;
+	border: 10px;
+	margin: auto;
+	border-radius: 15px;
+	margin-top: 50px;
+	border-color: white;
+}
+
+#form_container{
+	background-color: white;
+	height: 250px;
+	width: 275px;
+	border: 0px solid;
+	border-radius: 10px;
+	margin: auto;
+	margin-top: 15%;
+	background: url(email.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#confirm_field{
+	position: absolute;
+	color: #0098dc;
+	top: 75%;
+	left: -280px;
+	Background-color: white;
+	width: 275px;
+	height: 85px;
+	border-radius: 10px;
+	border: 1px solid;
+	text-align: center;
+}
+
+#confirm_text{
+	background-color: #dce0e6;
+	margin-top: 10px;
+	height: 30px;
+	width: 210px;
+	border: 0px;
+	border-radius: 5px;
+	font-size: 12pt;
+}
+
+#square{
+	background-color: #dce0e6;
+	width: 22px;
+	height: 22px;
+	text-align: center;
+	color: orange;
+}
+
+#get_acro{
+	background-color: #68b1e5;
+	border-radius: 5px;
+}
+
+#login{
+	background-color: #68b1e5;
+	border-radius: 5px;
+}
+
+#small_text{
+	color: orange;
+	font-size: 10pt;
+	margin: auto;
+}
+
+#text_fields{
+	margin: auto;
+}
+
+#fields{
+	width: 80%;
+	margin: auto;
+}
+
+#username{
+	border: 0px;
+	font-size: 12pt;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 100%;
+	height: 30px;
+}
+
+#newusername{
+	border: 0px;
+	font-size: 12pt;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 100%;
+	height: 30px;
+}
+
+#new_acro{
+	border: 0px;
+	font-size: 12pt;
+	margin-top: 3px;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+}
+
+#new_acro1{
+	border: 0px;
+	font-size: 12pt;
+	margin-top: 3px;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+}
+
+#new_acro2{
+	border: 0px;
+	font-size: 12pt;
+	margin-top: 3px;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+}
+
+#new_acro3{
+	border: 0px;
+	font-size: 12pt;
+	margin-top: 3px;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+}
+
+#new_acro4{
+	border: 0px;
+	font-size: 12pt;
+	margin-top: 3px;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+}
+
+#new_acro5{
+	border: 0px;
+	font-size: 12pt;
+	margin-top: 3px;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+}
+
+#new_acro6{
+	border: 0px;
+	font-size: 12pt;
+	margin-top: 3px;
+	background-color: #dce0e6;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+}
+
+#textbox{
+	background-color: white;
+	margin-top:10px;
+	color: orange;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 12pt;
+	width: 200px;
+	height: 30px;
+}
+
+#textbox2{
+	background-color: black;
+	color: orange;
+	border: none;
+	border-radius: 15px;
+	margin-top: 5px;
+	text-align: left;
+	font-size: 12pt;
+	width: 200px;
+	height: 30px;
+}
+
+#textboxF{
+	background-color: white;
+	color: orange;
+	border: none;
+	border-radius: 15px;
+	text-align: left;
+	font-size: 12pt;
+	width: 200px;
+	height: 30px;
+}
+
+#forgot{
+	background-color: white;
+	color: red;
+	border-radius:10px;
+}
+
+#new{
+	background-color: white;
+	color: green;
+	border-radius:10px;
+}
+
+#button_box{
+	width: 100%;
+}
+
+#login_butt{
+	border-radius: 15px;
+	margin-top: 10px;
+	background-color: white;
+	color: blue;
+	font-size: 13pt;
+}
+
+#register_butt{
+	margin-top: 10px;
+	background-color: #68b1e5;
+	border-radius: 5px;
+}
+
+#acro{
+	font-size: 16pt;
+	color: orange;
+}
+
+#inputs{
+	background-color: white;
+}
+	
+#clear{
+	background-color: #dce0e6;
+	width: 152px;
+	height: 22px;
+	border: 0px;
+	font-size: 12pt;
+	text-align: center;
+	color: white;
+}
+

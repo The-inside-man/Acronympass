@@ -1,0 +1,116 @@
+<!--	An alternate password use tool 
+		developed by Jacob Brown 2015
+		using a randomized acronym and
+		a phrase chosen by the user in 
+		place of a password. This makes
+		remembering the password much 
+		more difficult, while still ma-
+		intaining a high bit count of
+		entropy in terms of cryptography. 
+		Copy Right (C) JakeBrown 2015	-->
+<html>
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="functions.js">
+	</script>
+</head>
+<title>
+</title>
+<body id="body">
+	<!--Div where user confirms one element of acronym-->
+	<div id="confirm_field">
+		<label>Confirm</label></br>
+		<label id="char_val"></label><input type="text" placeholder="What does this stand for?" id="confirm_text" />
+		<br><input type="button" id="login" value="Login" onclick="login();"/>
+	</div>
+	
+	<!--Div where user registers new password-->
+	<div id="register_div">
+		<table border="0" style="width:100%;height:100%;">
+			<tr>
+				<td id="text_fields">
+					<table id="fields"><tr><td style="color:#0098dc;text-align:left;">Pick A Username</td></tr>
+					<tr><td><input type="text" id="newusername" name="newusername" onpaste="newusername_set(this);" oninput="newusername_set(this);" onkeydown="newusername_set(this);"/></td></tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td id="pro_acro">
+					<label>Your Acronym:</label></br>
+					<label id="acro"></label>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center;">
+					<input type="text" id="new_acro1" name="new_acro1" onpaste="check_acro(this,0);" oninput="check_acro(this,0);" onkeydown="check_acro(this,0);"/></br>
+					<input type="text" id="new_acro2" name="new_acro2" onpaste="check_acro(this,1);" oninput="check_acro(this,1);" onkeydown="check_acro(this,1);"/></br>
+					<input type="text" id="new_acro3" name="new_acro3" onpaste="check_acro(this,2);" oninput="check_acro(this,2);" onkeydown="check_acro(this,2);"/></br>
+					<input type="text" id="new_acro4" name="new_acro4" onpaste="check_acro(this,3);" oninput="check_acro(this,3);" onkeydown="check_acro(this,3);"/></br>
+					<input type="text" id="new_acro5" name="new_acro5" onpaste="check_acro(this,4);" oninput="check_acro(this,4);" onkeydown="check_acro(this,4);"/></br>
+					<input type="text" id="new_acro6" name="new_acro6" onpaste="check_acro(this,5);" oninput="check_acro(this,5);" onkeydown="check_acro(this,5);"/></br>
+					<input type="button" id="register_butt" value="Register" onclick="start_rmv(this);" disabled/>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="form_container">
+		<table border="0" style="width:100%;height:100%;">
+			<tr>
+				<td id="text_fields">
+					<table id="fields"><tr><td style="color:#0098dc;text-align:left;">Username</td></tr>
+					<tr><td><input type="text" id="username" name="username" onpaste="username_set(this);" oninput="username_set(this);" onkeydown="username_set(this);"/></td></tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td id="text_fields">
+					<table id="fields"><tr><td style="color:#0098dc;text-align:left;">Acronym</td></tr>
+					<tr><td>
+						<table>
+						<tr><td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">A</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">B</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">C</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">D</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">E</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">F</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">G</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">H</td></tr>
+						<tr><td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">I</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">J</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">K</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">L</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">M</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">N</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">O</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">P</td></tr>
+						<tr><td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">Q</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">R</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">S</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">T</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">U</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">V</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">W</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">X</td></tr>
+						<tr><td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">Y</td>
+							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">Z</td>
+							<td colspan="6">
+							<input type="button" id="clear" value="clear" onclick="clear_pass();" onmousedown="this.style.backgroundColor='orange';" onmouseover="this.style.backgroundColor='#888'" onmouseout="this.style.backgroundColor='#dce0e6'"/>
+							</td></tr>
+						</table>
+					</td></tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="small_text"><tr>
+					<td id="center_butts" onclick="start_reg_timer(this);" onmouseover="this.style.color='red';" onmouseout="this.style.color='orange';">Register</td>
+					<td>|</td><td onmouseover="this.style.color='red';" onmouseout="this.style.color='orange';" onclick="alert('Sorry to hear it...')">Forgot password?</td>
+					<td><input type="button" id="get_acro" name="get_acro" value="Confirm" onclick="start_timer(this);" disabled/></td></tr></table>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
