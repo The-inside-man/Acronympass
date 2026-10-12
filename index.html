@@ -1,116 +1,137 @@
-<!--	An alternate password use tool 
-		developed by Jacob Brown 2015
-		using a randomized acronym and
-		a phrase chosen by the user in 
-		place of a password. This makes
-		remembering the password much 
-		more difficult, while still ma-
-		intaining a high bit count of
-		entropy in terms of cryptography. 
-		Copy Right (C) JakeBrown 2015	-->
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<link href="style.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="functions.js">
-	</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f6f9">
+  <title>Acronympass — A story you remember</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="functions.js" defer></script>
 </head>
-<title>
-</title>
-<body id="body">
-	<!--Div where user confirms one element of acronym-->
-	<div id="confirm_field">
-		<label>Confirm</label></br>
-		<label id="char_val"></label><input type="text" placeholder="What does this stand for?" id="confirm_text" />
-		<br><input type="button" id="login" value="Login" onclick="login();"/>
-	</div>
-	
-	<!--Div where user registers new password-->
-	<div id="register_div">
-		<table border="0" style="width:100%;height:100%;">
-			<tr>
-				<td id="text_fields">
-					<table id="fields"><tr><td style="color:#0098dc;text-align:left;">Pick A Username</td></tr>
-					<tr><td><input type="text" id="newusername" name="newusername" onpaste="newusername_set(this);" oninput="newusername_set(this);" onkeydown="newusername_set(this);"/></td></tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td id="pro_acro">
-					<label>Your Acronym:</label></br>
-					<label id="acro"></label>
-				</td>
-			</tr>
-			<tr>
-				<td style="text-align:center;">
-					<input type="text" id="new_acro1" name="new_acro1" onpaste="check_acro(this,0);" oninput="check_acro(this,0);" onkeydown="check_acro(this,0);"/></br>
-					<input type="text" id="new_acro2" name="new_acro2" onpaste="check_acro(this,1);" oninput="check_acro(this,1);" onkeydown="check_acro(this,1);"/></br>
-					<input type="text" id="new_acro3" name="new_acro3" onpaste="check_acro(this,2);" oninput="check_acro(this,2);" onkeydown="check_acro(this,2);"/></br>
-					<input type="text" id="new_acro4" name="new_acro4" onpaste="check_acro(this,3);" oninput="check_acro(this,3);" onkeydown="check_acro(this,3);"/></br>
-					<input type="text" id="new_acro5" name="new_acro5" onpaste="check_acro(this,4);" oninput="check_acro(this,4);" onkeydown="check_acro(this,4);"/></br>
-					<input type="text" id="new_acro6" name="new_acro6" onpaste="check_acro(this,5);" oninput="check_acro(this,5);" onkeydown="check_acro(this,5);"/></br>
-					<input type="button" id="register_butt" value="Register" onclick="start_rmv(this);" disabled/>
-				</td>
-			</tr>
-		</table>
-	</div>
-	
-	<div id="form_container">
-		<table border="0" style="width:100%;height:100%;">
-			<tr>
-				<td id="text_fields">
-					<table id="fields"><tr><td style="color:#0098dc;text-align:left;">Username</td></tr>
-					<tr><td><input type="text" id="username" name="username" onpaste="username_set(this);" oninput="username_set(this);" onkeydown="username_set(this);"/></td></tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td id="text_fields">
-					<table id="fields"><tr><td style="color:#0098dc;text-align:left;">Acronym</td></tr>
-					<tr><td>
-						<table>
-						<tr><td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">A</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">B</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">C</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">D</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">E</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">F</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">G</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">H</td></tr>
-						<tr><td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">I</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">J</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">K</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">L</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">M</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">N</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">O</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">P</td></tr>
-						<tr><td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">Q</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">R</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">S</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">T</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">U</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">V</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">W</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">X</td></tr>
-						<tr><td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">Y</td>
-							<td id="square" onclick="clicked(this);" onMouseOver="square(this);" onMouseOut="square(this);">Z</td>
-							<td colspan="6">
-							<input type="button" id="clear" value="clear" onclick="clear_pass();" onmousedown="this.style.backgroundColor='orange';" onmouseover="this.style.backgroundColor='#888'" onmouseout="this.style.backgroundColor='#dce0e6'"/>
-							</td></tr>
-						</table>
-					</td></tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table id="small_text"><tr>
-					<td id="center_butts" onclick="start_reg_timer(this);" onmouseover="this.style.color='red';" onmouseout="this.style.color='orange';">Register</td>
-					<td>|</td><td onmouseover="this.style.color='red';" onmouseout="this.style.color='orange';" onclick="alert('Sorry to hear it...')">Forgot password?</td>
-					<td><input type="button" id="get_acro" name="get_acro" value="Confirm" onclick="start_timer(this);" disabled/></td></tr></table>
-				</td>
-			</tr>
-		</table>
-	</div>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">a<span>p</span></span>Acronympass</a>
+    <span class="header-note">A little story. A familiar way in.</span>
+  </header>
+  <main class="layout">
+    <section class="introduction" aria-labelledby="intro-title">
+      <p class="eyebrow">Remember the story</p>
+      <h1 id="intro-title">Make your password <em>memorable.</em></h1>
+      <p class="intro-copy">Turn your letters into a story only you know. Weave a number and symbol into their places, and remember your way back.</p>
+      <div class="story-example">
+        <p class="example-label">A story could look like this</p>
+        <div class="example-acronym" aria-label="Example code: B, seven, R, I, hash, D, G, E"><span>B</span><span class="extra-character">7</span><span>R</span><span>I</span><span class="extra-character">#</span><span>D</span><span>G</span><span>E</span></div>
+        <p class="example-story"><b>B</b>ears <span class="example-cue">[seven]</span> <b>r</b>ide <b>i</b>cy <span class="example-cue">[hash]</span> <b>d</b>ragons <b>g</b>athering <b>e</b>ggs.</p>
+        <p class="subtle">Follow the words and cues in order. The number and symbol can appear anywhere.</p>
+      </div>
+      <details class="how-it-works">
+        <summary>How does it work?</summary>
+        <ol>
+          <li>Choose 8–16 characters. Get random letters, one digit and one symbol in random positions. Longer codes give you more story words.</li>
+          <li>Write one word per letter. The ordered preview places the number and symbol cues into your scene for you.</li>
+          <li>Practice recalling your full code and story before creating your account.</li>
+          <li>Log in with your code, then recall a story word by its position.</li>
+        </ol>
+      </details>
+    </section>
+    <section id="account-card" class="account-card" aria-label="Your account">
+      <div class="tabs" role="tablist" aria-label="Account action">
+        <button id="login-tab" class="tab" type="button" role="tab" aria-controls="login-panel" aria-selected="true">Log in</button>
+        <button id="signup-tab" class="tab" type="button" role="tab" aria-controls="signup-panel" aria-selected="false" tabindex="-1">Create account</button>
+      </div>
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+      <section id="login-panel" role="tabpanel" aria-labelledby="login-tab">
+        <div id="credentials-step">
+          <p class="eyebrow card-eyebrow">Welcome back</p>
+          <h2>Your story starts here.</h2>
+          <p class="card-copy">Enter your username and full code to begin.</p>
+          <form id="login-form">
+            <label for="username">Username</label>
+            <input id="username" name="username" autocomplete="username" minlength="6" maxlength="64" pattern="[A-Za-z0-9_.\-]{6,64}" required>
+            <div class="label-row"><label for="acronym">Your code</label><button id="toggle-acronym" class="text-button" type="button" aria-controls="acronym" aria-pressed="false">Show</button></div>
+            <input id="acronym" class="acronym-input" name="password" type="password" autocomplete="current-password" minlength="6" maxlength="16" pattern="(?:[A-Za-z]{6}|(?=[^0-9]*[0-9][^0-9]*$)(?=[^!@#$%&amp;*?]*[!@#$%&amp;*?][^!@#$%&amp;*?]*$)[A-Za-z0-9!@#$%&amp;*?]{8,16})" autocapitalize="characters" spellcheck="false" aria-describedby="acronym-hint" required>
+            <p id="acronym-hint" class="field-hint">Type all your characters in order, or paste or autofill. Older six-letter codes still work.</p>
+            <details id="letter-picker" class="letter-picker">
+              <summary>Prefer to pick your characters?</summary>
+              <div id="letter-grid" class="letter-grid" role="group" aria-label="Letters, numbers and symbols"></div>
+              <div class="picker-actions"><button id="delete-letter" class="text-button" type="button">Delete last</button><button id="clear-letters" class="text-button" type="button">Clear code</button></div>
+            </details>
+            <button class="primary-button" type="submit">Continue <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="card-footnote">Next, we’ll ask for one word from your story.</p>
+        </div>
+        <div id="challenge-step" hidden>
+          <button id="back-to-login" class="text-button back-button" type="button">← Back to your code</button>
+          <p class="eyebrow card-eyebrow">One word to remember</p>
+          <h2 id="challenge-title">Recall your story.</h2>
+          <p id="challenge-prompt" class="card-copy"></p>
+          <form id="challenge-form">
+            <label id="challenge-label" for="challenge-word">Your word</label>
+            <input id="challenge-word" name="story-word" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="64" required>
+            <p class="field-hint">Think through your story from the beginning. Capitalization doesn’t matter.</p>
+            <button class="primary-button" type="submit">Log in <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+      </section>
+      <section id="signup-panel" role="tabpanel" aria-labelledby="signup-tab" hidden>
+        <div id="story-step">
+          <p class="eyebrow card-eyebrow">Step 1 of 2 · Make it yours</p>
+          <h2>Your code. Your story.</h2>
+          <p class="card-copy">Start with eight characters, or choose a longer code if you’re comfortable remembering more words.</p>
+          <form id="signup-form">
+            <label for="new-username">Choose a username</label>
+            <input id="new-username" name="username" autocomplete="username" minlength="6" maxlength="64" pattern="[A-Za-z0-9_.\-]{6,64}" aria-describedby="username-hint" required>
+            <p id="username-hint" class="field-hint">6–64 letters, numbers, dots, dashes or underscores.</p>
+            <label for="code-length">Code length</label>
+            <select id="code-length" name="code-length" aria-describedby="length-hint">
+              <option value="8" selected>8 characters · 6 story words</option>
+              <option value="9">9 characters · 7 story words</option>
+              <option value="10">10 characters · 8 story words</option>
+              <option value="11">11 characters · 9 story words</option>
+              <option value="12">12 characters · 10 story words</option>
+              <option value="13">13 characters · 11 story words</option>
+              <option value="14">14 characters · 12 story words</option>
+              <option value="15">15 characters · 13 story words</option>
+              <option value="16">16 characters · 14 story words</option>
+            </select>
+            <p id="length-hint" class="field-hint">Every code includes one digit and one symbol. Changing the length assigns a new code.</p>
+            <div class="label-row"><span id="assigned-label" class="field-label">Your assigned code</span><button id="new-letters" class="text-button" type="button">Try a new code</button></div>
+            <div id="assigned-acronym" class="assigned-acronym" aria-labelledby="assigned-label" aria-describedby="secret-cues"></div>
+            <p id="secret-cues" class="field-hint secret-cues"></p>
+            <label id="story-label" for="story">Your personal story words</label>
+            <textarea id="story" name="story" rows="3" maxlength="1000" autocomplete="off" spellcheck="true" aria-describedby="story-hint story-feedback" placeholder="Make a scene you can picture…" required></textarea>
+            <p id="story-hint" class="field-hint">One word per letter, from left to right. Skip the filled-in number and symbol cues.</p>
+            <ol id="story-words" class="story-words" aria-label="Your ordered story words and cues"></ol>
+            <p id="story-feedback" class="story-feedback" aria-live="polite"></p>
+            <button class="primary-button" type="submit">Practice remembering <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="card-footnote">Keep your story private, just like a password.</p>
+        </div>
+        <div id="rehearsal-step" hidden>
+          <button id="review-story" class="text-button back-button" type="button">← Review or edit my story</button>
+          <p class="eyebrow card-eyebrow">Step 2 of 2 · A quick rehearsal</p>
+          <h2>Picture it. Recall it.</h2>
+          <p id="recall-copy" class="card-copy">We’ve hidden your code and story. Recall your full code and personal words from memory.</p>
+          <form id="rehearsal-form">
+            <label for="recall-acronym">Your full code</label>
+            <input id="recall-acronym" class="acronym-input" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="16" pattern="(?=[^0-9]*[0-9][^0-9]*$)(?=[^!@#$%&amp;*?]*[!@#$%&amp;*?][^!@#$%&amp;*?]*$)[A-Za-z0-9!@#$%&amp;*?]{8,16}" autocapitalize="characters" spellcheck="false" required>
+            <label id="recall-story-label" for="recall-story">Your personal story words</label>
+            <textarea id="recall-story" rows="3" maxlength="1000" autocomplete="off" spellcheck="false" aria-describedby="recall-hint" required></textarea>
+            <p id="recall-hint" class="field-hint">There’s no timer. Review your story whenever you need to.</p>
+            <button class="primary-button" type="submit">Create my account <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+      </section>
+      <section id="signed-in-panel" aria-labelledby="signed-in-title" hidden>
+        <div class="success-symbol" aria-hidden="true">✓</div>
+        <p class="eyebrow">Story recalled</p>
+        <h2 id="signed-in-title" tabindex="-1">You’re in.</h2>
+        <p id="signed-in-message" class="card-copy"></p>
+        <button id="logout" class="primary-button" type="button">Log out</button>
+      </section>
+      <noscript><p class="status error">Please enable JavaScript to create your story or log in.</p></noscript>
+    </section>
+  </main>
+  <footer class="site-footer">Your imagination is a good place to start.</footer>
 </body>
 </html>
